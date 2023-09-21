@@ -53,9 +53,9 @@ public @Data class Features {
   private float avgParenthesis = 0.0f;
   private float avgPeriods = 0.0f;
   private float avgSpaces = 0.0f;
-  private float avgLength = 0.0f;
+  private float avgLineLength = 0.0f;
 
-  private int maxLength = 0;
+  private int maxLineLength = 0;
 
   private float avgIndentation = 0;
   private int maxIndentation = 0;
