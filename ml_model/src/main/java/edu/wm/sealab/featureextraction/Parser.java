@@ -71,7 +71,6 @@ public class Parser {
       pw.append(",");
       pw.append("avgConditionals");
       pw.append(",");
-      //new features
       pw.append("avgCommas");
       pw.append(",");
       pw.append("avgParenthesis");
@@ -89,6 +88,12 @@ public class Parser {
       pw.append("maxIndentation");
       pw.append(",");
       pw.append("avgBlankLines");
+      pw.append(",");
+      pw.append("avgArithmeticOperators");
+      pw.append(",");
+      pw.append("avgNumbers");
+      pw.append(",");
+      pw.append("maxNumbers");
       pw.append("\n");
 
       List<String[]> lines = null;
@@ -131,7 +136,7 @@ public class Parser {
                 Features features = sfe.extract(methodBody);
                 
                 // Locate and extract file data from loc_data.csv
-                int entryIndex = findCorrespondingEntry(allLines, file.toString());
+                int entryIndex = findCorrespondingEntry(allLines, file.getName());
                 String[] entryLine = allLines.get(entryIndex);
                 double entryNumLinesOfCode = Double.parseDouble(entryLine[4]);
 
@@ -203,7 +208,6 @@ public class Parser {
                 pw.append(",");
                 pw.append(Double.toString(avgNumOfConditionals));
                 pw.append(",");
-                // new features
                 pw.append(Double.toString(avgCommas));
                 pw.append(",");
                 pw.append(Double.toString(avgParenthesis));
@@ -221,6 +225,13 @@ public class Parser {
                 pw.append(Float.toString(features.getMaxIndentation()));
                 pw.append(",");
                 pw.append(Double.toString(avgBlankLines));
+                pw.append(",");
+                pw.append(Double.toString(avgNumOfNumbers));
+                pw.append(",");
+
+                // Maximums
+                pw.append(Integer.toString(features.findMaxNumbers()));
+
                 pw.append("\n");
               })
           .explore(projectDir);
