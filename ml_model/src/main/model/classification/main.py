@@ -67,7 +67,7 @@ dict_data = {
     "use_smote": False
 }
 
-ROOT_PATH = "ml_model/src/main/model/"
+ROOT_PATH = "/Users/nadeeshan/Documents/Fall2023/complexity-verification-project/ml_model/src/main/model/"
 
 
 def model_initialisation(model_name, parameters):
@@ -401,8 +401,7 @@ if __name__ == "__main__":
 
 
                             if experiment['use_SMOTE']:
-                                if experiment['target'] != "ABU50": # ABU50 is already balanced
-                                    X_train_c, y_train_c = SMOTE(random_state=42).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
+                                X_train_c, y_train_c = SMOTE(random_state=42).fit_resample(X_train_c, y_train_c.to_numpy().ravel())
 
                             ##############################
                             ## Code + warnings features ##
@@ -417,8 +416,7 @@ if __name__ == "__main__":
 
 
                             if experiment['use_SMOTE']:
-                                if experiment['target'] != "ABU50": # ABU50 is already balanced
-                                    X_train_cw, y_train_cw = SMOTE(random_state=42).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
+                                X_train_cw, y_train_cw = SMOTE(random_state=42).fit_resample(X_train_cw, y_train_cw.to_numpy().ravel())
 
                             ############
                             ## PART 1 ##
